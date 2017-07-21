@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html data-ng-app="HttpandSearch">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title data-ng-controller="titleCont"> {{title}} </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="usercontroller">
+	<div class="row" >
+		<div class="col-md-6 col-md-offset-3">
+			<div class="row">
+				<form ng-submit="SearchResult()">
+					<div class="form-group">
+						<label for="">Aranacak Kişinin Adını Giriniz</label>
+						<input type="text" class="form-control" ng-model="username" name="search" placeholder="Kullanıcılarda Ara...">
+					</div>
+					<div class="form-group col-md-3">
+						<button class="btn btn-primary btn-block">Ara</button>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<div class="alert alert-danger" id="donnk">
+					<p id="message"></p>
+				</div>
+			</div>
+			<div class="row">
+				<h4> {{tableHead}} <span class="userCount">({{getUserCount()}})</span> adet kullanıcı var</h4>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>E-mail</th>
+							<th>City</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="user in userResult">
+							<td> {{user.id}} </td>
+							<td> {{user.name}} </td>
+							<td> {{user.email}} </td>
+							<td> {{user.address.city}} </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</body>
+</html>
