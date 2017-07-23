@@ -1,3 +1,7 @@
+@curve : 1px;
+@font-ailesi : Helvetica;
+@boyut : 3px;
+
 body{
 	font-family:sans-serif;
 	padding-top: 2em;
@@ -11,4 +15,14 @@ body{
 	font-size: 30px;
 	font-family:Lucida;
 	padding-top: -5px;
+}
+
+input[type=text]{
+	border-radius: @curve;
+	font-family: @font-ailesi;
+	font-size: @boyut;
+}
+button{
+	border-radius: @border-radius;
+	font-size: @boyut;
 }

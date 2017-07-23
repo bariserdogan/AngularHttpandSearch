@@ -7,7 +7,8 @@ HttpApp.controller('titleCont',function($scope){
 HttpApp.controller('usercontroller',function($scope,$http){
 
 	$scope.tableHead="Kullanıcılar";
-
+	// Http servisi ile url'den veriyi get metodu ile çekiyoruz
+	// Veri json parse edilmiş olarak response parametresine atanmış bir şekilde geliyor
 	$http({
 		method:'GET',
 		url:"https://jsonplaceholder.typicode.com/users"
@@ -17,6 +18,7 @@ HttpApp.controller('usercontroller',function($scope,$http){
 			$scope.validation = response.statusText;
 	});
 
+	//Toplam kişi sayısını döndüren metod
 	$scope.getUserCount=function(){
 		return $scope.Users.length;
 	};
@@ -29,7 +31,7 @@ HttpApp.controller('usercontroller',function($scope,$http){
 		});
 
 		$scope.username="";
-
+		// yalnış bir id girildiği takdirde bs3-alert ile mesaj verilecek 
 		if(!$scope.userResult.length)
 		{
 			$("#donnk").fadeIn(500,function(){
