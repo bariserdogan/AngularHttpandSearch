@@ -5,7 +5,7 @@ HttpApp.controller('titleCont',function($scope){
 });
 
 HttpApp.controller('usercontroller',function($scope,$http){
-	
+
 	$scope.tableHead="Kullanıcılar";
 
 	$http({
@@ -20,6 +20,8 @@ HttpApp.controller('usercontroller',function($scope,$http){
 	$scope.getUserCount=function(){
 		return $scope.Users.length;
 	};
+
+	$("#donnk").css('display','none');
 
 	$scope.SearchResult=function(){
 		$scope.userResult=$scope.Users.filter(function(item){

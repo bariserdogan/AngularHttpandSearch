@@ -12,9 +12,3 @@ body{
 	font-family:Lucida;
 	padding-top: -5px;
 }
-#donnk{
-	display: none;
-}
-input[type=text]{
-	border-radius:0;
-}
