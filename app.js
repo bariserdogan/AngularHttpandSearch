@@ -7,10 +7,14 @@ HttpApp.controller('titleCont',function($scope){
 HttpApp.controller('usercontroller',function($scope,$http){
 	
 	$scope.tableHead="Kullanıcılar";
-	var url ="https://jsonplaceholder.typicode.com/users";
-	$http.get(url)
-		.then(function(response){
-			$scope.Users=response.data;
+
+	$http({
+		method:'GET',
+		url:"https://jsonplaceholder.typicode.com/users"
+	}).then(function successGet(response){
+			$scope.Users=response.data
+		},function errorGet(response){
+			$scope.validation = response.statusText;
 	});
 
 	$scope.getUserCount=function(){
@@ -26,9 +30,12 @@ HttpApp.controller('usercontroller',function($scope,$http){
 
 		if(!$scope.userResult.length)
 		{
-			var uyari = document.getElementById("donnk");
-			uyari.style.display = 'show';
-			document.querySelector("#message").innerHTML= "Aradığınız Kullanıcı Bulunamadı";
+			$("#donnk").fadeIn(500,function(){
+				var close=function(){
+					$("#donnk").fadeOut(500);
+				};
+				setTimeout(close,2500);
+			});
 		}
 	};
 
